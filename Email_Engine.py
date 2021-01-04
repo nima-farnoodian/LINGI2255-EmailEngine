@@ -169,8 +169,8 @@ def send_email_simple(receiver,subject,bodyscript):
     #type(smtpObj) 
     smtpObj.ehlo()
     smtpObj.starttls()
-    smtpObj.login('uclouvaintest@outlook.com', "uclouv@intest2020") 
-    smtpObj.sendmail('uclouvaintest@outlook.com', receiver, body) # Or recipient@outlook
+    smtpObj.login('youremail@outlook.com', "your password") 
+    smtpObj.sendmail('youremail@outlook.com', receiver, body) # Or recipient@outlook
 
     smtpObj.quit()
     pass
@@ -184,7 +184,7 @@ def send_email_html(receiver,subject,bodyscript='',html=''):
     # Create message container - the correct MIME type is multipart/alternative.
     msg = MIMEMultipart('alternative')
     msg['Subject'] = subject
-    msg['From'] = 'uclouvaintest@outlook.com'
+    msg['From'] = 'youremail@outlook.com'
     msg['To'] = receiver
 
     # Create the body of the message (a plain-text and an HTML version).
@@ -216,8 +216,8 @@ def send_email_html(receiver,subject,bodyscript='',html=''):
     #type(smtpObj) 
     smtpObj.ehlo()
     smtpObj.starttls()
-    smtpObj.login('uclouvaintest@outlook.com', "uclouv@intest2020") 
-    smtpObj.sendmail('uclouvaintest@outlook.com', receiver, msg.as_string()) # Or recipient@outlook
+    smtpObj.login('youremail@outlook.com', "your password") 
+    smtpObj.sendmail('youremail@outlook.com', receiver, msg.as_string()) # Or recipient@outlook
 
     smtpObj.quit()
     pass
@@ -228,7 +228,7 @@ def name_extract(full_email):
 
 def html_embedding(images,sender_mail,sender_name,sender_id,send_date,image_number,sender_message):
     head=(''  '<html>'
-            '<img src="https://app4you.be/images/banner-email.png" alt="Logo App4you by Ethias" border="0" class="img__block" style="display: block; max-width: 100%; margin: 0 auto;" />'
+            '<img src="https://docparser.com/blog/wp-content/uploads/2016/08/Email-Attachment-Parsing-e1479117260293.png" alt="Logo" border="0" class="img__block" style="display: block; max-width: 100%; margin: 0 auto;" />'
               '<head> <title>{sender_name}</title> </head>'
               '<body>'
               '<hr>'
@@ -266,8 +266,8 @@ def html_embedding(images,sender_mail,sender_name,sender_id,send_date,image_numb
 
 def email_reader(time):
     mail_conbtents=[]
-    EMAIL = 'uclouvaintest@outlook.com'
-    PASSWORD = "uclouv@intest2020"
+    EMAIL = 'youremail@outlook.com'
+    PASSWORD = "yourpassword"
     SERVER = 'outlook.office365.com'
     e = threading.Event()
     while not e.wait(time):
